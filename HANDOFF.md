@@ -50,9 +50,27 @@ the CI YAML/JSON checks pass.
 - Existing limitations: external redirects remain followed by curl; parsing
   is heuristic (no browser execution or general HTML-parser guarantee).
   Legal content and legal outcomes were not reviewed in this phase.
-- Status: complete; PR https://github.com/mhfed/vn-law-check/pull/16 open,
-  implementation CI green. This final documentation-only update records the
-  completed gate. No merge performed; next action is maintainer review/merge.
+- Status: complete; PR https://github.com/mhfed/vn-law-check/pull/16 merged by
+  maintainer as `5dae122`; implementation and main CI passed.
 - Rework cycles: 1 (review found two missing boundary cases; fixed together).
 - Environment retries (not code rework): localhost sandbox access, PyYAML setup.
 - Actual token usage: unavailable.
+
+## Release v1.7.1 phase (2026-11-20)
+
+- Goal: publish the approved scanner fixes as v1.7.1. The previous public
+  release/tag is v1.5.3; plugin metadata was 1.7.0.
+- Contract: bump only plugin version metadata; release notes also explain
+  the v1.6/v1.7 features already present on main since the last public release.
+  No scanner or legal-content changes in this phase.
+- Base: `5dae122`, branch `release/v1.7.1`.
+- Changed paths: `plugins/vn-law-check/.claude-plugin/plugin.json`, `HANDOFF.md`.
+- Plan: validate metadata/sync, pass existing CI on release PR, merge the
+  version update and publish v1.7.1 targeting that exact main commit.
+- Acceptance gate: plugin JSON reports 1.7.1, sync and existing CI pass;
+  GitHub release is public/latest and tag resolves to the versioned commit.
+- Verification: metadata/sync and CI pending; publication pending.
+- Risks: none introduced by the metadata change; existing scanner limitations
+  remain documented in the previous phase.
+- Next action: run checks and open the release PR.
+- Rework cycles: 0. Actual token usage: unavailable.
